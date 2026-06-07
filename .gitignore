@@ -1,0 +1,78 @@
+####################################
+# Build artifacts
+####################################
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+####################################
+# Visual Studio
+####################################
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+
+####################################
+# JetBrains Rider / IntelliJ
+####################################
+.idea/
+*.iml
+
+####################################
+# NuGet
+####################################
+*.nupkg
+packages/
+.nuget/
+
+####################################
+# Unity / Valheim specifics
+####################################
+*.mdb
+*.pdb
+*.unityproj
+*.csproj.user
+
+####################################
+# BepInEx runtime output (IMPORTANT)
+####################################
+BepInEx/config/
+BepInEx/cache/
+BepInEx/core/
+BepInEx/plugins/*/
+!BepInEx/plugins/Vanilla_plus.dll
+
+####################################
+# Logs & temp
+####################################
+*.log
+*.tmp
+*.bak
+*.swp
+
+####################################
+# OS files
+####################################
+.DS_Store
+Thumbs.db
+
+####################################
+# Thunderstore / release packages
+####################################
+*.zip
+*.rar
+*.7z
+
+####################################
+# Local test assets (optional)
+####################################
+Test/
+Sandbox/
