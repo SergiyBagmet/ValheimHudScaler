@@ -42,6 +42,9 @@
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>G:\steam\steamapps\common\Valheim\Valheim_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>G:\steam\steamapps\common\Valheim\Valheim_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
 
     <!-- 🔹 DLL Valheim -->
     <Reference Include="assembly_valheim">
