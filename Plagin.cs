@@ -2,39 +2,37 @@ using BepInEx;
 using HarmonyLib;
 using UnityEngine;
 
-
-using ValheimHudScaler.Minimap;
-
-
+using ValheimHudScaler.MiniMap;
 
 [BepInPlugin("Shampusiha.ValheimHudScaler", "ValheimHudScaler", "1.0.0")]
 public class ValheimHudScalerPlugin : BaseUnityPlugin
-{
-    private Harmony harmony;
-    private MinimapHudChanger hudChanger;
-    private UserInput userInput;
-    private InputConfig inputConfig;
+{   
+    internal static ValheimHudScalerPlugin Instance; // для доступа к конфигу из других классов
+    internal Config HudConfig; // для хранения настроек, связанных с миникартой
 
+    private Harmony harmony; // для управления патчами
+    
     private void Awake()
     {
+        Instance = this;
+        HudConfig = new Config();
+        HudConfig.Bind(Config);
+
         harmony = new Harmony("Shampusiha.ValheimHudScaler");
         harmony.PatchAll();
 
-        inputConfig = new InputConfig();
-        inputConfig.Bind(Config);
 
         var hudGameObject = new GameObject("HudScaler");
-        hudChanger = hudGameObject.AddComponent<MinimapHudChanger>();
-        hudChanger.Init();
+        //hudChanger = hudGameObject.AddComponent<MinimapHudChanger>();
+        //hudChanger.Init();
 
-        userInput = hudGameObject.AddComponent<UserInput>();
-        userInput.Initialize(hudChanger, inputConfig);
-        DontDestroyOnLoad(hudGameObject);
+        //userInput = hudGameObject.AddComponent<UserInput>();
+        //userInput.Initialize(hudChanger, inputConfig);
+        //DontDestroyOnLoad(hudGameObject);
     }
 
     private void OnDestroy()
     {
-        hudChanger?.Shutdown();
-        harmony.UnpatchSelf();
+        harmony.UnpatchSelf(); // удаляем все патчи при выгрузке плагина
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "g:\\modding\\ValheimHudScaler\\ValheimHudScaler.csproj": {}
+    "G:\\modding\\ValheimHudScaler\\ValheimHudScaler.csproj": {}
   },
   "projects": {
-    "g:\\modding\\ValheimHudScaler\\ValheimHudScaler.csproj": {
+    "G:\\modding\\ValheimHudScaler\\ValheimHudScaler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "g:\\modding\\ValheimHudScaler\\ValheimHudScaler.csproj",
+        "projectUniqueName": "G:\\modding\\ValheimHudScaler\\ValheimHudScaler.csproj",
         "projectName": "ValheimHudScaler",
-        "projectPath": "g:\\modding\\ValheimHudScaler\\ValheimHudScaler.csproj",
+        "projectPath": "G:\\modding\\ValheimHudScaler\\ValheimHudScaler.csproj",
         "packagesPath": "C:\\Users\\serge\\.nuget\\packages\\",
-        "outputPath": "g:\\modding\\ValheimHudScaler\\obj\\",
+        "outputPath": "G:\\modding\\ValheimHudScaler\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\serge\\AppData\\Roaming\\NuGet\\NuGet.Config"

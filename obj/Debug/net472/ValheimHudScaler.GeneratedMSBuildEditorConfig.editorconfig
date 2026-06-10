@@ -1,6 +1,6 @@
 is_global = true
 build_property.RootNamespace = ValheimHudScaler
-build_property.ProjectDir = g:\modding\ValheimHudScaler\
+build_property.ProjectDir = G:\modding\ValheimHudScaler\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTUseWindowsUIXamlProjections = false

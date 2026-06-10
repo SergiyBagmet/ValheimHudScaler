@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fj6NvxBwiuk=",
+  "dgSpecHash": "HppMowl0LWU=",
   "success": true,
-  "projectFilePath": "g:\\modding\\ValheimHudScaler\\ValheimHudScaler.csproj",
+  "projectFilePath": "G:\\modding\\ValheimHudScaler\\ValheimHudScaler.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\serge\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
     "C:\\Users\\serge\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.3\\microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512"
