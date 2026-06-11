@@ -6,13 +6,21 @@ using ValheimHudScaler.MiniMap;
 
 public class InputManager : MonoBehaviour
 {
-    private readonly Config config;
-
+    private Config config;
+    
     public event Action IncreaseHudScaleRequested;
     public event Action DecreaseHudScaleRequested;
 
-    private void Update()
+    public void Initialize(Config config)
     {
+        this.config = config;
+    }
+
+    private void Update()
+    {   
+        if (config == null)
+            return; 
+
         if (!ZInput.GetKey(config.MiniHudScaleModifierKey.Value))
             return;
 

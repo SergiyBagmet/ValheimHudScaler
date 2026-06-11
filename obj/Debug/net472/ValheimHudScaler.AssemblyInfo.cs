@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ValheimHudScaler")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+854c2be42d94d5b42b77e5383fda9be0906e3cb8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66f0910a6061d86cd653a4d4bd2dc00dd1a5c0f7")]
 [assembly: System.Reflection.AssemblyProductAttribute("ValheimHudScaler")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ValheimHudScaler")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

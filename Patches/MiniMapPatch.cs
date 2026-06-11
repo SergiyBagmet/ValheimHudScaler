@@ -1,41 +1,36 @@
 using HarmonyLib;
 using UnityEngine;
+using ValheimHudScaler.MiniMap;
 
-namespace ValheimHudScaler.Patches
+namespace ValheimHudScaler.MiniMap
 {
-    internal static class MinimapPatches
+    [HarmonyPatch(typeof(global::Minimap), "Start")]
+    public static class MiniMapPatch
     {
-        private const float MinimapZoomMultiplier = 1.25f;
+        private static float _lastScale = -1f; // для оптимизации, чтобы не применять масштаб, если он не изменился
 
-        [HarmonyPostfix]
-        [HarmonyPatch(typeof(global::Minimap), "Start")]
-        private static void MinimapStartPostfix(global::Minimap __instance)
+        private static void Postfix(global::Minimap __instance)
         {
-            if (__instance == null)
-            {
+            var manager = ValheimHudScalerPlugin.Instance?.MiniMapHudManager;
+            if (manager == null)
                 return;
-            }
+
+            float scale = manager.CurrentScale;
+            if (Mathf.Approximately(scale, _lastScale))
+                return;
+
+            _lastScale = scale;
+
+            Vector3 targetScale = Vector3.one * scale;
+
+            if (__instance.m_smallRoot != null)
+                __instance.m_smallRoot.transform.localScale = targetScale;
 
             if (__instance.m_mapImageSmall != null)
-            {
-                __instance.m_mapImageSmall.rectTransform.localScale = Vector3.one * MinimapZoomMultiplier;
-            }
-
-            if (__instance.m_mapImageLarge != null)
-            {
-                __instance.m_mapImageLarge.rectTransform.localScale = Vector3.one * MinimapZoomMultiplier;
-            }
+                __instance.m_mapImageSmall.rectTransform.localScale = targetScale;
 
             if (__instance.m_mapSmall != null)
-            {
-                __instance.m_mapSmall.transform.localScale = Vector3.one * MinimapZoomMultiplier;
-            }
-
-            if (__instance.m_largeRoot != null)
-            {
-                __instance.m_largeRoot.transform.localScale = Vector3.one * MinimapZoomMultiplier;
-            }
+                __instance.m_mapSmall.transform.localScale = targetScale;
         }
-
     }
 }
