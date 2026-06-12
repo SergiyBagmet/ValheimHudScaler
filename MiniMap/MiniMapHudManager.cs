@@ -8,9 +8,12 @@ namespace ValheimHudScaler.MiniMap
         private readonly InputManager inputManager;
 
         public float CurrentScale { get; private set; }
+        public event System.Action<float> ScaleChanged;
 
         public MiniMapHudManager(Config config, InputManager inputManager)
         {
+            Debug.Log("[HudScaler] MiniMapHudManager constructor start");
+
             this.config = config;
             this.inputManager = inputManager;
 
@@ -21,15 +24,19 @@ namespace ValheimHudScaler.MiniMap
 
             inputManager.IncreaseHudScaleRequested += Increase; // подписываемся на события от InputManager
             inputManager.DecreaseHudScaleRequested += Decrease;
+
+            Debug.Log("[HudScaler] MiniMapHudManager subscribed to input events");
         }
 
         public void Increase()
         {
+            Debug.Log("[HudScaler] Increase event received, current=" + CurrentScale);
             SetScale(CurrentScale + config.MiniHudScaleAmount.Value);
         }
 
         public void Decrease()
         {
+            Debug.Log("[HudScaler] Decrease event received, current=" + CurrentScale);
             SetScale(CurrentScale - config.MiniHudScaleAmount.Value);
         }
 
@@ -38,6 +45,13 @@ namespace ValheimHudScaler.MiniMap
             CurrentScale = Mathf.Clamp(value, 0.75f, 3f); // ограничиваем масштаб в разумных пределах
 
             config.MiniHudScaleValue.Value = CurrentScale;
+            Debug.Log("[HudScaler] Scale changed to " + CurrentScale);
+            ScaleChanged?.Invoke(CurrentScale);
+        }
+
+        public float GetScaleForMinimap()
+        {
+            return CurrentScale;
         }
 
         public void Dispose()

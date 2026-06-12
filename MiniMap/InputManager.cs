@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
     public void Initialize(Config config)
     {
         this.config = config;
+        Debug.Log("[HudScaler] InputManager initialized");
     }
 
     private void Update()
@@ -26,11 +27,13 @@ public class InputManager : MonoBehaviour
 
         if (ZInput.GetKeyDown(config.MiniHudScaleIncreaseKey.Value))
         {
+            Debug.Log("[HudScaler] Increase key pressed");
             IncreaseHudScaleRequested?.Invoke();
         }
 
         if (ZInput.GetKeyDown(config.MiniHudScaleDecreaseKey.Value))
         {
+            Debug.Log("[HudScaler] Decrease key pressed");
             DecreaseHudScaleRequested?.Invoke();
         }
     }

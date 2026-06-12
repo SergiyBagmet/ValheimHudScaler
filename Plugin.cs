@@ -17,23 +17,32 @@ public class ValheimHudScalerPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        Debug.Log("[HudScaler] Plugin Awake started");
+
         Instance = this;
 
         HudConfig = new Config();
         HudConfig.Bind(Config);
 
         var inputObject = new GameObject("MiniMapInput");
+        DontDestroyOnLoad(inputObject);
+        Debug.Log("[HudScaler] Input object made persistent across scenes");
+
         inputManager = inputObject.AddComponent<InputManager>();
         inputManager.Initialize(HudConfig);
 
         MiniMapHudManager = new MiniMapHudManager(HudConfig, inputManager);
+        Debug.Log("[HudScaler] MiniMapHudManager created");
 
         harmony = new Harmony("Shampusiha.ValheimHudScaler");
         harmony.PatchAll();
+        Debug.Log("[HudScaler] Harmony PatchAll finished");
     }
 
     private void OnDestroy()
     {
+        Debug.Log("[HudScaler] Plugin OnDestroy started");
+
         MiniMapHudManager?.Dispose();
 
         if (inputManager != null)
